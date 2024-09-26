@@ -1,5 +1,15 @@
-import "./globals.css";
+import { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Finance Platform",
+  description: "My app description",
+};
 
 export default function RootLayout({
   children,
@@ -9,7 +19,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>{children}</body>
+        <body className={inter.className}>{children}</body>
       </html>
     </ClerkProvider>
   );
