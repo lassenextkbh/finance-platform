@@ -10,9 +10,9 @@ const app = new Hono()
                 id: accounts.id,
                 name: accounts.name,
             })
-            .from(accounts)
+            .from(accounts);
 
-        return c.json({ accounts: [] })
+        return c.json({ data });
     })
 
 export default app;
