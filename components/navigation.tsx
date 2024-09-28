@@ -7,7 +7,13 @@ import { useMedia } from "react-use";
 
 import { Button } from "./ui/button";
 import { NavButton } from "./nav-button";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/sheet";
 
 const routes = [
   {
@@ -47,7 +53,8 @@ export const Navigation = () => {
   if (isMobile) {
     return (
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetTrigger>
+        <SheetTitle /> {/* added to fix shadcn error */}
+        <SheetTrigger asChild>
           <Button
             variant="outline"
             size="sm"
@@ -57,6 +64,7 @@ export const Navigation = () => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="px-2">
+          <SheetDescription /> {/* added to fix shadcn error */}
           <nav className="flex flex-col gap-y-2 pt-6">
             {routes.map((route) => (
               <Button
